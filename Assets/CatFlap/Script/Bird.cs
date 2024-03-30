@@ -100,14 +100,14 @@ public class Bird : MonoBehaviour
             if (isBackwardJump == false)
             {
                 isBackwardJump = true;
-                this.transform.localScale = new Vector3(-0.6f, 0.6f, 0);
+                this.transform.localScale = new Vector3(-1f, 1f, 0);
                 BackwardJump();
             }
 
             else
             {
                 isBackwardJump = false;
-                this.transform.localScale = new Vector3(0.6f, 0.6f, 0);
+                this.transform.localScale = new Vector3(1f, 1f, 0);
                 Jump();
             };
         }
@@ -119,14 +119,14 @@ public class Bird : MonoBehaviour
             if (isBackwardJump == false)
             {
                 isBackwardJump = true;
-                this.transform.localScale = new Vector3(-0.6f, 0.6f, 0);
+                this.transform.localScale = new Vector3(-1f, 1f, 0);
                 BackwardJump();
             }
 
             else
             {
                 isBackwardJump = false;
-                this.transform.localScale = new Vector3(0.6f, 0.6f, 0);
+                this.transform.localScale = new Vector3(1f, 1f, 0);
                 Jump();
             };
         }

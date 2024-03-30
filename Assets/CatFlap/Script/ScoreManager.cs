@@ -6,7 +6,12 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private Text scoreTxt;
-    private int score;
+    private static int score;
+
+    public static int Score
+    {
+        get { return score; }
+    }
 
     private void Start()
     {
