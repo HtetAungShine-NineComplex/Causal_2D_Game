@@ -7,6 +7,8 @@ public class ObstacleManager : MonoBehaviour
     [SerializeField] private List<GameObject> rightObstacles = new List<GameObject>();
     [SerializeField] private List<GameObject> leftObstacles = new List<GameObject>();
     [SerializeField] private List<GameObject> OccupiedPos = new List<GameObject>();
+    [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private Transform coinParentTransform;
 
     private int ObstacleCount;
     private void Start()
@@ -21,18 +23,18 @@ public class ObstacleManager : MonoBehaviour
     private void activateLeftObstacle()
     {
         Debug.Log("Trigger Left Obstacle");
-        activateRandomObstacles(leftObstacles);
+        activateRandomObstacles(leftObstacles,true);
         deactivateObstacles(rightObstacles);
     }
 
     private void activateRightObstacle()
     {
         Debug.Log("Trigger Right Obstacle");
-        activateRandomObstacles(rightObstacles);
+        activateRandomObstacles(rightObstacles,false);
         deactivateObstacles(leftObstacles);
     }
 
-    private void activateRandomObstacles(List<GameObject> obstacles)
+    private void activateRandomObstacles(List<GameObject> obstacles,bool isleft)
     {
         Debug.Log("Player Score " + ScoreManager.Score);
         if (ScoreManager.Score>=1 && ScoreManager.Score <= 10)
@@ -77,8 +79,27 @@ public class ObstacleManager : MonoBehaviour
                 coinPosition.Add(shuffleObstacles[i]);
             }
         }
+
         if(coinPosition.Count > 0)
         {
+            Vector3 randomCoinPos = coinPosition[Random.Range(0, coinPosition.Count)].transform.position;
+            GameObject randomCoin = Instantiate(coinPrefab, randomCoinPos, Quaternion.identity);
+            Vector3 randomCoinInitalPos = randomCoin.transform.position;
+            if(isleft == true)
+            {
+                randomCoin.transform.position = randomCoinInitalPos + new Vector3(32, 0, 0);
+            }
+            else if(isleft == false)
+            {
+                randomCoin.transform.position = randomCoinInitalPos + new Vector3(-9, 0, 0);
+            }
+            /*if (isleft == true)
+            {
+                Vector3 randomCoinPos = coinPosition[Random.Range(0, coinPosition.Count)].transform.position;
+                GameObject randomCoin = Instantiate(coinPrefab, randomCoinPos, Quaternion.identity);
+                //randomCoin.transform.position = Vector3(13,)
+            }*/
+            
 
         }
 
