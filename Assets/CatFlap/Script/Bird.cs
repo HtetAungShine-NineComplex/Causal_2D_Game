@@ -8,7 +8,7 @@ public class Bird : MonoBehaviour
     public event Action OnTriggerLeftCollider;
 
     private static Bird my_instance;
-    private const float jumpForce = 42f;
+    private const float jumpForce = 4.5f;
     private Rigidbody2D bird_RB;
     private BirdState birdState;
     private SpriteRenderer spriteRenderer;
@@ -77,7 +77,7 @@ public class Bird : MonoBehaviour
     {
         if (bird_RB.bodyType != RigidbodyType2D.Static)
         {
-            bird_RB.velocity = new Vector2(21f,jumpForce);
+            bird_RB.velocity = new Vector2(2.5f,jumpForce);
             //SoundManager.GetInstance.PlaySound(SoundManager.audioClipEnum.birdJump);
         }
     }
@@ -85,7 +85,7 @@ public class Bird : MonoBehaviour
     {
         if(bird_RB.bodyType != RigidbodyType2D.Static)
         {
-            bird_RB.velocity = new Vector2(-21f, jumpForce);
+            bird_RB.velocity = new Vector2(-2.5f, jumpForce);
             //SoundManager.GetInstance.PlaySound(SoundManager.audioClipEnum.birdJump);
         }
     }
@@ -100,14 +100,14 @@ public class Bird : MonoBehaviour
             if (isBackwardJump == false)
             {
                 isBackwardJump = true;
-                this.transform.localScale = new Vector3(-1f, 1f, 0);
+                this.transform.localScale = new Vector3(-0.1f, 0.1f, 0);
                 BackwardJump();
             }
 
             else
             {
                 isBackwardJump = false;
-                this.transform.localScale = new Vector3(1f, 1f, 0);
+                this.transform.localScale = new Vector3(0.1f, 0.1f, 0);
                 Jump();
             };
         }
@@ -119,14 +119,14 @@ public class Bird : MonoBehaviour
             if (isBackwardJump == false)
             {
                 isBackwardJump = true;
-                this.transform.localScale = new Vector3(-1f, 1f, 0);
+                this.transform.localScale = new Vector3(-0.1f, 0.1f, 0);
                 BackwardJump();
             }
 
             else
             {
                 isBackwardJump = false;
-                this.transform.localScale = new Vector3(1f, 1f, 0);
+                this.transform.localScale = new Vector3(0.1f, 0.1f, 0);
                 Jump();
             };
         }
@@ -137,14 +137,5 @@ public class Bird : MonoBehaviour
         }
        /* SoundManager.GetInstance.PlaySound(SoundManager.audioClipEnum.dead);
         if (OnDied != null) OnDied(this, EventArgs.Empty);*/
-    }
-    private void OnMouseUp()
-    {
-
-    }
-
-    private void OnMouseDrag()
-    {
-
     }
 }

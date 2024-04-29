@@ -3343,6 +3343,9 @@ MonoBehaviour:
   - {fileID: 467651813}
   - {fileID: 1082311401}
   - {fileID: 1596323552}
+  OccupiedPos: []
+  coinPrefab: {fileID: 0}
+  coinParentTransform: {fileID: 0}
 --- !u!4 &723981329
 Transform:
   m_ObjectHideFlags: 0
